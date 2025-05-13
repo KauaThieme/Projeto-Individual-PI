@@ -1,0 +1,79 @@
+body {
+    margin: 0; 
+    padding: 0;
+    background-color: #464444;
+    height: 100vh;
+}
+
+.container {
+    display: flex;  
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    height: 70px;
+    background-color: black;
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none; /* tira os pontos da lista */
+    height: 100%;
+    gap: 150px;
+    padding-left: 0px;
+}
+
+
+.logo img {
+    width: fit-content; /* se adapta ao tamanho da navbar */
+    height: 85px;
+    padding-right: px;
+    margin-top: 10px;
+    margin-left: -100px;
+}
+
+.container2 {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    list-style: none;
+    margin-right: -250px;
+}
+
+.capacete img {
+    margin-right: -240px;
+    padding-left: 70px;
+    width: fit-content;
+    height: 25px;
+}
+
+/* Fim do header */
+
+.homeImagem1 img {
+    height: 480px;
+    width: 215vh;
+}
+
+.homeImagem1 {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
