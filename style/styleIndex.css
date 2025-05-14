@@ -1,7 +1,7 @@
 body {
     margin: 0; 
     padding: 0;
-    background-color: #464444;
+    background-color: #A21322;
     height: 100vh;
 }
 
@@ -15,7 +15,7 @@ body {
 
 .header {
     height: 70px;
-    background-color: black;
+    background-color: transparent;
 }
 
 .header .container {
@@ -37,16 +37,19 @@ body {
     list-style: none; /* tira os pontos da lista */
     height: 100%;
     gap: 150px;
-    padding-left: 0px;
+    padding-left: 250px;
+    position: fixed;
+    padding-top: 20px;
 }
 
 
 .logo img {
     width: fit-content; /* se adapta ao tamanho da navbar */
-    height: 85px;
+    height: 60px;
     padding-right: px;
-    margin-top: 10px;
+    margin-top: -10px;
     margin-left: -100px;
+    position: fixed;
 }
 
 .container2 {
@@ -54,7 +57,9 @@ body {
     justify-content: end;
     gap: 10px;
     list-style: none;
-    margin-right: -250px;
+    position: fixed;
+    padding-left: 925px;
+    padding-top: 20px;
 }
 
 .capacete img {
@@ -62,18 +67,51 @@ body {
     padding-left: 70px;
     width: fit-content;
     height: 25px;
+    position: fixed;
 }
 
 /* Fim do header */
 
 .homeImagem1 img {
-    height: 480px;
-    width: 215vh;
+    width: auto;
+    height: 843px; 
+    display: block;
 }
 
 .homeImagem1 {
     display: flex;
-    margin-left: 10px;
-    margin-top: 16px;
+    margin-left: 0px;
+    margin-top: -70px;
     margin-bottom: 10px;
+}
+
+.container .navbar {
+    font-family: 'Times New Roman', Times, serif
+}
+
+.imagemTexto {
+    position: absolute;
+    top: 480px;
+    left: 30px;
+    font-size: 20px;
+    color: #930000;
+    text-shadow: 1px 1px 1px rgb(96, 0, 0);
+}
+
+.imagemTexto2 {
+    position: absolute;
+    top: 540px;
+    left: 70px;
+    font-size: 24px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px rgb(96, 0, 0);
+}
+
+.imagemTexto3 {
+    position: absolute;
+    top: 640px;
+    left: 30px;
+    font-size: 35px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px rgb(96, 0, 0);
 }
