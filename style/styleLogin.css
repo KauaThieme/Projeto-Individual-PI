@@ -1,84 +1,132 @@
 body {
-        margin: 0;
-        padding: 0;
-        background-color: black;
-        height: 100vh;
-        overflow-x: hidden;
-        width: 100%;
-        height: 500px;
-        background-image: url(../assets/imgs/fundo_login.png);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    height: 500px;
+    background-image: url(../assets/imgs/fundo_login.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
+}
 
-    .container {
-        display: flex;
-        width: 80%;
-        margin: auto;
-        justify-content: space-between;
-        align-items: center;
-    }
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .header {
-        height: 70px;
-        background-color: transparent;
-    }
+.header {
+    height: 70px;
+    background-color: transparent;
+}
 
-    .header .container {
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-    }
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
 
-    .header a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-    }
+.header a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
 
-    .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        list-style: none;
-        /* tira os pontos da lista */
-        height: 100%;
-        gap: 150px;
-        padding-left: 130px;
-        padding-top: 24px;
-        font-size: 15px;
-        position: relative;
-    }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    /* tira os pontos da lista */
+    height: 100%;
+    gap: 150px;
+    padding-left: 130px;
+    padding-top: 24px;
+    font-size: 15px;
+    position: relative;
+}
 
 
-    .logo img {
-        width: fit-content;
-        /* se adapta ao tamanho da navbar */
-        height: 60px;
-        padding-right: px;
-        margin-top: 40px;
-        margin-left: -100px;
-        position: relative;
-    }
+.logo img {
+    width: fit-content;
+    /* se adapta ao tamanho da navbar */
+    height: 60px;
+    padding-right: px;
+    margin-top: 40px;
+    margin-left: -100px;
+    position: relative;
+}
 
-    .login {
-        display: flex;
-        justify-content: end;
-        gap: 10px;
-        list-style: none;
-        position: relative;
-        padding-top: 30px;
-        font-size: 13px;
-        margin-left: 120px;
-    }
+.login {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    list-style: none;
+    position: relative;
+    padding-top: 30px;
+    font-size: 13px;
+    margin-left: 120px;
+}
 
-    .capacete img {
-        margin-right: -100px;
-        padding-left: 20px;
-        margin-bottom: -25px;
-        width: fit-content;
-        height: 25px;
-        position: relative;
-    }
+.capacete img {
+    margin-right: -100px;
+    padding-left: 20px;
+    margin-bottom: -25px;
+    width: fit-content;
+    height: 25px;
+    position: relative;
+}
+
+.quadrado .formulario {
+    color: aliceblue;
+    text-align: center;
+    margin-left: 360px;
+}
+
+.quadrado img {
+   width: 250px;
+   margin-left: 350px;
+}
+
+.botao {
+    margin-left: -7px;
+    padding: 12px 30px;
+    background-color: #ff0000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 40px rgb(255, 0, 0);
+}
+
+.input1 {
+    margin-left: -35px;
+    width: 100%;
+    padding: 12px 30px;
+    margin-bottom: 15px;
+    border: none;
+    /* remove a borda do input */
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(255, 0, 0);
+    font-size: 17px;
+    outline: none;
+    /* remove a borda padrão */
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.input1::placeholder {
+    color: #ff0000;
+}
+
+.campo {
+    text-align: left;
+}
