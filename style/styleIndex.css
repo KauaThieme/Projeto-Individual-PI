@@ -1,8 +1,9 @@
 body {
     margin: 0; 
     padding: 0;
-    background-color: #A21322;
+    background-color: black;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
@@ -37,9 +38,10 @@ body {
     list-style: none; /* tira os pontos da lista */
     height: 100%;
     gap: 150px;
-    padding-left: 250px;
-    position: fixed;
-    padding-top: 20px;
+    padding-left: 130px;
+    padding-top: 24px;
+    font-size: 15px;
+    position: relative;
 }
 
 
@@ -47,27 +49,29 @@ body {
     width: fit-content; /* se adapta ao tamanho da navbar */
     height: 60px;
     padding-right: px;
-    margin-top: -10px;
+    margin-top: 40px;
     margin-left: -100px;
-    position: fixed;
+    position: relative;
 }
 
-.container2 {
+.login {
     display: flex;
     justify-content: end;
     gap: 10px;
     list-style: none;
-    position: fixed;
-    padding-left: 925px;
-    padding-top: 20px;
+    position: relative;
+    padding-top: 30px;
+    font-size: 13px;
+    margin-left: 120px;
 }
 
 .capacete img {
-    margin-right: -240px;
-    padding-left: 70px;
+    margin-right: -100px;
+    padding-left: 20px;
+    margin-bottom: -25px;
     width: fit-content;
     height: 25px;
-    position: fixed;
+    position: relative;
 }
 
 /* Fim do header */
@@ -75,14 +79,15 @@ body {
 .homeImagem1 img {
     width: auto;
     height: 843px; 
-    display: block;
+    display: flex;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgb(255, 0, 0) 100%);
 }
 
 .homeImagem1 {
     display: flex;
     margin-left: 0px;
     margin-top: -70px;
-    margin-bottom: 10px;
+    margin-bottom: 100px;
 }
 
 .container .navbar {
@@ -91,27 +96,85 @@ body {
 
 .imagemTexto {
     position: absolute;
-    top: 480px;
+    top: 440px;
     left: 30px;
     font-size: 20px;
     color: #930000;
     text-shadow: 1px 1px 1px rgb(96, 0, 0);
 }
 
+.imagemTexto1 h1 {
+    position: absolute;
+    top: 710px;
+    left: 30px;
+    font-size: 40px;
+    color: #930000;
+    text-shadow: 1px 1px 1px rgb(96, 0, 0);
+}
+
 .imagemTexto2 {
     position: absolute;
-    top: 540px;
+    top: 510px;
     left: 70px;
     font-size: 24px;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px rgb(96, 0, 0);
+    color: #000000;
+    text-shadow: 1px 1px 1px rgb(231, 231, 231);
 }
 
 .imagemTexto3 {
     position: absolute;
-    top: 640px;
-    left: 30px;
-    font-size: 35px;
+    top: 880px;
+    left: 655px;
+    font-size: 30px;
+    color: #FFD700;
+    text-shadow: 3px 3px 3px rgb(121, 121, 121);
+}
+
+.container3 img {
+    position: absolute;
+    left: 20px;
+    margin-top: -30px;
+    width: 550px;
+    height: 450px;
+    border-radius: 15px;
+}
+
+.container3 h1 {
+    position: absolute;
+    top: 1000px;
+    left: 580px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #fafafa;
+    font-style: inherit;
+}
+
+.container4 img {
+    width: 600px;
+    height: 400px;
+    margin-top: -90px;
+    margin-left: 640px;
+    border-radius: 15px;
+    margin-bottom: -20px; 
+}
+
+.container4 h1 {
+    margin-top: -340px;
+    margin-left: 20px;
     color: #ffffff;
-    text-shadow: 1px 1px 1px rgb(96, 0, 0);
+    font-style: inherit;
+    font-size: 25px;
+}
+
+.jenny h1 {
+    margin-top: -470px;
+    font-size: 70px;
+    margin-left: 50px;
+    color: #0d00ff;
+    text-shadow: 3px 3px 3px rgb(121, 121, 121);
+}
+
+.img_fundo img {
+    width: 1270px;
+    margin-top: -100px;
 }
