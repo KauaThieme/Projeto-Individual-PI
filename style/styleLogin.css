@@ -84,14 +84,15 @@ body {
 }
 
 .quadrado .formulario {
+    font-size: 20px;
     color: aliceblue;
     text-align: center;
     margin-left: 360px;
 }
 
 .quadrado img {
-   width: 250px;
-   margin-left: 350px;
+    width: 250px;
+    margin-left: 350px;
 }
 
 .botao {
@@ -114,7 +115,7 @@ body {
     border: none;
     /* remove a borda do input */
     border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.345);
     color: rgb(255, 0, 0);
     font-size: 17px;
     outline: none;

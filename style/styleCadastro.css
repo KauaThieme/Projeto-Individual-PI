@@ -52,7 +52,6 @@
         position: relative;
     }
 
-
     .logo img {
         width: fit-content;
         /* se adapta ao tamanho da navbar */
@@ -63,7 +62,17 @@
         position: relative;
     }
 
-    .login {
+    .cadastro img {
+        width: fit-content;
+        /* se adapta ao tamanho da navbar */
+        height: 60px;
+        padding-right: px;
+        margin-top: 40px;
+        margin-left: -100px;
+        position: relative;
+    }
+
+    .cadastro {
         display: flex;
         justify-content: end;
         gap: 10px;
@@ -83,4 +92,52 @@
         position: relative;
     }
 
-    
+    .quadro .formulario {
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        margin-left: 310px;
+        margin-top: 30px;
+    }
+
+    .quadro img {
+        width: 250px;
+        margin-left: 350px;
+    }
+
+    .botao {
+        margin-left: -7px;
+        padding: 12px 30px;
+        background-color: #ff0000;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 0 40px rgb(255, 0, 0);
+    }
+
+    .input2 {
+        margin-left: -35px;
+        width: 100%;
+        padding: 12px 30px;
+        margin-bottom: 15px;
+        border: none;
+        /* remove a borda do input */
+        border-radius: 30px;
+        background-color: rgba(0, 0, 0, 0.345);
+        color: rgb(255, 0, 0);
+        font-size: 17px;
+        outline: none;
+        /* remove a borda padrão */
+        backdrop-filter: blur(5px);
+        text-align: center;
+    }
+
+    .input2::placeholder {
+        color: #ff0000;
+    }
+
+    .campo {
+        text-align: left;
+    }
