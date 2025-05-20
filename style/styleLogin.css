@@ -4,13 +4,27 @@ body {
     background-color: black;
     height: 100vh;
     overflow-x: hidden;
+    /* esconder qualquer conteúdo que ultrapasse a largura horizontal do elemento */
+    position: relative;
+    z-index: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    /* cobre a tela inteira */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 500px;
-    background-image: url(../assets/imgs/fundo_login.png);
+    height: 100%;
+    background-image: url(../assets/imgs/garagem2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
+    opacity: 0.6;
+    /* só afeta a imagem de fundo */
+    z-index: -1;
+    /* fica atrás do conteúdo */
 }
 
 .container {
@@ -22,14 +36,10 @@ body {
 }
 
 .header {
-    height: 70px;
     background-color: transparent;
-}
-
-.header .container {
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+    padding: 20px;
+    text-align: center;
+    margin-left: 100px;
 }
 
 .header a {
@@ -38,49 +48,37 @@ body {
     font-weight: bold;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.navbar ul {
     list-style: none;
-    /* tira os pontos da lista */
-    height: 100%;
-    gap: 150px;
-    padding-left: 130px;
-    padding-top: 24px;
-    font-size: 15px;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    font-family: Arial, sans-serif;
 }
 
+.navbar a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #d00000;
+    transition: width 0.5s;
+    margin: 2px auto 0;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.navbar a:hover {
+    color: #f4d35e;
+}
 
 .logo img {
-    width: fit-content;
-    /* se adapta ao tamanho da navbar */
-    height: 60px;
-    padding-right: px;
-    margin-top: 40px;
-    margin-left: -100px;
-    position: relative;
-}
-
-.login {
-    display: flex;
-    justify-content: end;
-    gap: 10px;
-    list-style: none;
-    position: relative;
-    padding-top: 30px;
-    font-size: 13px;
-    margin-left: 120px;
-}
-
-.capacete img {
-    margin-right: -100px;
-    padding-left: 20px;
-    margin-bottom: -25px;
-    width: fit-content;
-    height: 25px;
-    position: relative;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100px;
 }
 
 .quadrado .formulario {
@@ -130,4 +128,19 @@ body {
 
 .campo {
     text-align: left;
+}
+
+.contaTT {
+    color: aliceblue;
+    margin-left: 370px;
+    margin-top: 25px;
+    display: flex;
+}
+
+.Cadastre-se a {
+    color: #00ff2a;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    display: inline-block;
 }
