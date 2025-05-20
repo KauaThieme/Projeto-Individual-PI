@@ -8,6 +8,7 @@ body {
     background-repeat: no-repeat;
     /* Remover rolagem horizontal */
     overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -16,58 +17,6 @@ body {
     margin: auto;
     justify-content: space-between;
     align-items: center;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 120px;
-    font-family: Arial, sans-serif;
-}
-
-.navbar a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #d00000;
-    transition: width 0.5s;
-    margin: 2px auto 0;
-}
-
-.navbar a:hover::after {
-    width: 100%;
-}
-
-.navbar a:hover {
-    color: #f4d35e;
-}
-
-.logo img {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 100px;
-}
-
-.header {
-    background-color: transparent;
-    padding: 20px;
-    text-align: center;
-    margin-left: 100px;
-}
-
-.header .container {
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.header a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
 }
 
 .cadastro img {
@@ -130,4 +79,91 @@ body {
 
 .campo {
     text-align: left;
+}
+
+.header {
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    margin-right: 125px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+}
+
+.login button {
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    padding: 12px 30px;
+    margin-top: -70px;
+    margin-left: 480px;
+    position: absolute;
+}
+
+.login button a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.botao_my button {
+    border: none;
+    font-weight: bold;
+    background-color: #ff0000;
+    padding: 12px 30px;
+    margin-top: -10px;
+    border-radius: 5px;
+}
+
+.botao_my button a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.lista a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s;
+    margin: 2px auto 0;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.lista a:hover {
+    color: #ffffff;
+}
+
+.logo img {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100px;
+}
+
+.logoSecundaria img {
+    position: absolute;
+    width: 35px;
+    left: 1180px;
+    top: 30px;
 }
