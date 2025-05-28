@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementando ChartJs</title>
+  <link rel="stylesheet" href="../CHRT.JS/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./style/styleDash.css">
+</head>
+
+<body>
+
+  <br><br>
+
+  <div class="dashboard">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <div class="navbar">
+    <ul>
+      <li><a href="#">Usuário</a></li>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#">Óbitos</a></li>
+    </ul>
+  </div>
+
+</body>
+
+<script>
+  const labels = [
+    'Peter Hickman',
+    'Ian Hutchinson',
+    'Michael Dunlop',
+    'Joey Dunlop',
+    'John McGuinness',
+    'David Jefferies',
+    'Steve Hislop'
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Total de Vitórias no TT',
+      borderColor: 'rgba(212, 175, 55, 1)',   
+      backgroundColor: 'rgba(212, 175, 55, 0.3)',
+      fill: true,                               
+      tension: 0.2,                               
+      data: [13, 16, 25, 26, 23, 9, 11],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      scales: {
+        x: {
+          grid: {
+            color: 'rgba(255, 255, 255, 0.5)'
+          },
+          ticks: {
+            color: '#fff' 
+          }
+        },
+        y: {
+          grid: {
+            color: 'rgba(255, 255, 255, 0.5)' 
+          },
+          ticks: {
+            color: '#fff' 
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#fff' 
+          }
+        }
+      }
+    }
+  };
+
+</script>
+
+<script>
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+</script>
+
+</html>
