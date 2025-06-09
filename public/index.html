@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isle of Man TT - Superbike</title>
+    <script src="./js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./style/styleIndex.css">
 </head>
 
-<body>
+<body onload="validarSessao()">
     <div class="header">
 
         <div class="logo">
@@ -17,15 +19,17 @@
 
         <div class="navbar">
             <ul class="lista">
+                <li><a href="./estatisticas3.html" id="estatisticas">Estatísticas</a></li>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./estatisticas.html">Estatísticas</a></li>
-                <li class="botao_my" ><button><a href="./sobreMim.html">Conheça-me</a></button></li>
-                <li><a href="https://www.youtube.com/@TTRacesOfficial">Vídeos </a></li>
-                <li><a href="./quiz.html">Quiz</a></li>
+                <li class="botao_my"><button><a href="./sobreMim.html">Conheça-me</a></button></li>
+                <li><a href="https://www.youtube.com/@TTRacesOfficial" target="_blank">Vídeos</a></li>
+                <li><a href="./quiz.html" id="quiz">Quiz</a></li>
             </ul>
-            <div class="login">
-                <a href="./login.html"><button>Login</button></a>
-            </div>
+        </div>
+
+        <div id="login-area">
+            <a href="./login.html" id="login">Login</a>
+            <a id="usuario" onclick="sair()"></a>
         </div>
 
         <div class="logoSecundaria">
@@ -63,6 +67,7 @@
                 </li>
                 <li>Preparadas para desempenho máximo em velocidade, aceleração, frenagem e estabilidade.</li>
                 <li>Podem alcançar velocidades superiores a 320 km/h na TT Mountain Course.</li>
+                <li>As Velocidades médias das superbikes na TT podem chegar até 219 KM/H.</li>
                 <li>Equipadas com suspensões, freios, escapes e componentes de alta tecnologia para suportar as
                     condições extremas da prova.</li>
             </ul>
@@ -73,8 +78,8 @@
             <h2>Início (1907)</h2>
             <p>
                 O Isle of Man TT foi realizado pela primeira vez em 1907, na Ilha de Man, uma pequena ilha entre a
-                Inglaterra e a Irlanda. Na época, as leis britânicas proibiam corridas em vias públicas, mas a Ilha de
-                Man tinha sua própria legislação — permitindo que a prova acontecesse em estradas comuns.
+                Inglaterra e a Irlanda. Na época, as leis britânicas proibiam corridas em vias públicas, mas a Ilha que
+                também é um país, tinha sua própria legislação — permitindo que a prova acontecesse em estradas comuns.
 
                 O percurso original foi o St. John's Course, com 24 km de extensão. A corrida foi criada para testar a
                 resistência e a confiabilidade das motocicletas, que estavam em seus primeiros estágios de
@@ -135,8 +140,8 @@
                         CBR1000RR Fireblade, com a qual estabeleceu domínio absoluto por quase uma década. Em 2007, fez
                         história ao ser o primeiro a completar uma volta na Mountain Course com média superior a 130 mph
                         (209 km/h), um feito que parecia impossível na época. Seu estilo de pilotagem era marcado pela
-                        precisão e regularidade: McGuinness não era o mais agressivo, mas sabia exatamente quando forçar
-                        e quando preservar a moto — uma abordagem que lhe rendeu inúmeras vitórias e respeito
+                        precisão e regularidade, McGuinness não era o mais agressivo, mas sabia exatamente quando forçar
+                        e quando preservar a moto, uma abordagem que lhe rendeu inúmeras vitórias e respeito
                         incondicional dos rivais.
                         <br>
                         Mesmo após enfrentar lesões graves, como a fratura complexa sofrida em 2017 durante o North West
@@ -161,7 +166,8 @@
                         <li>Nacionalidade: Norte-Irlandês</li>
                     </ul>
                     <p>
-                        Michael Dunlop, sobrinho do lendário Joey Dunlop, é uma das maiores estrelas do Isle of Man TT na
+                        Michael Dunlop, sobrinho do lendário Joey Dunlop, é uma das maiores estrelas do Isle of Man TT
+                        na
                         era moderna. Com mais de 25 vitórias acumuladas ao longo de sua carreira, ele se destaca
                         especialmente na categoria Superbike, onde demonstra um equilíbrio raro entre velocidade extrema
                         e controle preciso. Michael é conhecido por seu estilo agressivo e sua habilidade de empurrar os
@@ -244,5 +250,4 @@
 
 </body>
 
-</html> 
-
+</html>

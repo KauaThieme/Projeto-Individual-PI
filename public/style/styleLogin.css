@@ -89,42 +89,42 @@ body::before {
     margin-left: 350px;
 }
 
+/* CSS do botão de login */
+
 .botao {
     margin-left: 422px;
     padding: 12px 30px;
-    background-color: #ff0000;
+    background-color: #000000;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 20px;
     font-size: 16px;
     font-weight: bold;
-    box-shadow: 0 0 40px rgb(255, 0, 0);
+    box-shadow: 0 0 40px rgb(0, 0, 0);
 }
+
+/* CSS dos inputs */
 
 .input1 {
     margin-left: -35px;
     width: 100%;
-    padding: 12px 30px;
+    padding: 20px 30px;
     margin-bottom: 15px;
     border: none;
-    /* remove a borda do input */
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.345);
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 17px;
     outline: none;
-    /* remove a borda padrão */
     backdrop-filter: blur(5px);
     text-align: center;
 }
 
 .input1::placeholder {
-    color: #ff0000;
+    color: #bdbdbd;
 }
 
-.campo {
-    text-align: left;
-}
+/* CSS para cadastrar */
 
 .contaTT {
     color: aliceblue;
@@ -141,6 +141,8 @@ body::before {
     display: inline-block;
 }
 
+/* CSS do botão conheça-me */
+
 .botao_my button a {
     color: rgb(255, 255, 255);
     text-decoration: none;
@@ -156,21 +158,31 @@ body::before {
     border-radius: 5px;
 }
 
+/* CSS dos alerts */
+
 .swal2-popup {
     width: 30%;
-    right: 30px;
-    font-size: 1.2rem !important;
-    font-family: 'Arial', sans-serif !important;
-    background: #202020 !important;
-    color: #ffffff !important;
+    right: 40px;
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    background: #202020;
+    color: #ffffff;
 }
 
 .swal2-title {
-    color: #f44336 !important;
+    color: #f44336;
     font-weight: bold;
 }
 
 .swal2-confirm {
-    background-color: #ff0000 !important;
-    font-size: 1rem !important;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.swal2-confirm:hover {
+    background-color: #0022ff70;
+    cursor: pointer;
 }

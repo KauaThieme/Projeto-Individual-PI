@@ -6,7 +6,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Remover rolagem horizontal */
     overflow: hidden;
 }
 
@@ -16,7 +15,7 @@ body {
     margin: auto;
     justify-content: space-between;
     align-items: center;
-}
+} 
 
 .navbar ul {
     list-style: none;
@@ -51,7 +50,7 @@ body {
     background-color: transparent;
     padding: 20px;
     text-align: center;
-    margin-left: -90px;
+    margin-left: -75px;
 }
 
 .header .container {
@@ -90,44 +89,43 @@ body {
 }
 
 .botao {
-    margin-left: 140px;
-    padding: 12px 30px;
-    background-color: #ff0000;
+    margin-left: 135px;
+    padding: 15px 35px;
+    background-color: #000000;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 0 40px rgb(255, 0, 0);
-    margin-top: 0px;
+    box-shadow: 0 0 40px rgb(0, 0, 0);
+    margin-top: 35px;
     display: flex;
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
 }
+
+/* CSS das inputs */
 
 .input2 {
-    margin-left: -35px;
-    width: 100%;
-    padding: 12px 30px;
+    margin-left: -135px;
+    width: 90%;
+    padding: 20px 30px;
     margin-bottom: 15px;
     border: none;
-    /* remove a borda do input */
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.345);
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 17px;
     outline: none;
-    /* remove a borda padrão */
     backdrop-filter: blur(5px);
     text-align: center;
-}
+}   
 
 .input2::placeholder {
-    color: #ff0000;
+    color: #bdbdbd;
 }
 
-.campo {
-    text-align: left;
-}
+/* CSS do botão conheça-me */
 
 .botao_my button {
     border: none;
@@ -136,6 +134,7 @@ body {
     padding: 12px 30px;
     margin-top: -10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .botao_my button a {
@@ -144,21 +143,31 @@ body {
     font-size: 15px;
 }
 
+/* CSS dos alerts */
+
 .swal2-popup {
     width: 30%;
-    right: 10px;
-    font-size: 1.2rem !important;
-    font-family: 'Arial', sans-serif !important;
-    background: #202020 !important;
-    color: #ffffff !important;
+    right: 20px;
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    background: #202020;
+    color: #ffffff;
 }
 
 .swal2-title {
-    color: #f44336 !important;
+    color: #f44336;
     font-weight: bold;
 }
 
 .swal2-confirm {
-    background-color: #ff0000 !important;
-    font-size: 1rem !important;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.swal2-confirm:hover {
+    background-color: #0022ff70;
+    cursor: pointer;
 }

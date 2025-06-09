@@ -1,36 +1,41 @@
-// sessão
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
+    var login = document.getElementById("login");
+    var cadastro = document.getElementById("cadastro");
+
 
     if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
+        usuario.innerHTML = 'Olá, ' + nome;
+        login.style.display = "none";
     } else {
-        window.location = "../login.html";
+        quiz.style.display = "none";
+        estatisticas.style.display = "none";
+        sair.style.display = "none";
+        usuario.style.display = "none";
     }
 }
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    window.location = "../index.html";
 }
 
-// carregamento (loading)
-function aguardar() {
-    var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "flex";
+function sair() {
+    Swal.fire({
+        title: "Deseja sair?",
+        text: "Você não poderá reverter isso!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sim",
+        cancelButtonText: "Não"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            limparSessao();
+        }
+    });
+
 }
-
-function finalizarAguardar(texto) {
-    var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
-
-    var divErrosLogin = document.getElementById("div_erros_login");
-    if (texto) {
-        divErrosLogin.style.display = "flex";
-        divErrosLogin.innerHTML = texto;
-    }
-}
-

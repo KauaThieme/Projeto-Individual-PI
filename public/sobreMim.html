@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isle of Man TT - Superbike</title>
+    <script src="./js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./style/styleSobreMim.css">
 </head>
 
-<body>
+<body onload="validarSessao()">
 
     <div class="header">
 
@@ -18,16 +20,17 @@
 
         <div class="navbar">
             <ul class="lista">
+                <li><a href="./estatisticas3.html" id="estatisticas">Estatísticas</a></li>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="#">Estatísticas</a></li>
-                <li class="botao_my"><button><a href="./sobreMim.html">Conheça-me</a></button>
-                </li>
-                <li><a href="https://www.youtube.com/@TTRacesOfficial">Vídeos </a></li>
-                <li><a href="./quiz.html">Quiz</a></li>
+                <li class="botao_my"><button><a href="./sobreMim.html">Conheça-me</a></button></li>
+                <li><a href="https://www.youtube.com/@TTRacesOfficial" target="_blank">Vídeos</a></li>
+                <li><a href="./quiz.html" id="quiz">Quiz</a></li>
             </ul>
-            <div class="login">
-                <button><a href="./login.html">Login</a></button>
-            </div>
+        </div>
+
+        <div id="login-area">
+            <a href="./login.html" id="login">Login</a>
+            <a id="usuario" onclick="sair()"></a>
         </div>
 
         <div class="logoSecundaria">
@@ -64,7 +67,7 @@
         <div class="destaque">
             <h2>Minha primeira viagem de moto!</h2>
             <p>
-                Essa foto, em específico, foi quando meu pai fez algo surreal: levou minha mini moto na viagem que nós
+                Essa foto, em específico, foi quando meu pai fez algo surreal, levou minha mini moto na viagem que nós
                 fizemos para o Paraná. Foi lá que eu conheci minha prima essa mesma que aparece na foto. Quando ela me
                 viu, não hesitou em pular em cima da moto e, assim, nós dois dávamos várias e várias voltas numa quadra
                 de futebol que tinha por lá.

@@ -1,3 +1,4 @@
+/* Corpo da página com background escuro e imagem de fundo */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -5,96 +6,31 @@ body {
     color: #ffffff;
     position: relative;
     z-index: 0;
-    /* determina se o elemento vai ficar acima ou abaixo de outros elementos */
 }
 
 body::before {
     content: "";
     position: fixed;
-    /* cobre a tela inteira */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../imgs/foto_fundo.jpg");
+    background-image: url("../imgs/Isle_Of_Man_TT_3.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.4;
-    /* só afeta a imagem de fundo */
+    opacity: 0.2;
     z-index: -1;
-    /* fica atrás do conteúdo */
 }
 
+/* HEADER */
 .header {
     background-color: transparent;
     padding: 20px;
     text-align: center;
-    margin-right: 95px;
+    margin-right: 50px;
+    position: relative;
 }
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 70px;
-}
-
-.login button {
-    border-radius: 30px;
-    border: none;
-    font-weight: bold;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
-    padding: 12px 30px;
-    margin-top: -60px;
-    margin-left: 475px;
-    position: absolute;
-}
-
-.login button a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-}
-
-.botao_my button {
-    border: none;
-    font-weight: bold;
-    background-color: #ff0000;
-    padding: 12px 30px;
-    margin-top: -10px;
-    border-radius: 5px;
-}
-
-.botao_my button a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.lista a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #ffffff;
-    transition: width 0.5s;
-    margin: 2px auto 0;
-}
-
-.navbar a:hover::after {
-    width: 100%;
-}
-
 
 .logo img {
     position: absolute;
@@ -108,4 +44,220 @@ body::before {
     width: 35px;
     left: 1180px;
     top: 30px;
+}
+
+/* Navegação */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    padding-left: 0;
+    margin: 15px;
+}
+
+.lista a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.lista a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.4s;
+    margin: 2px auto 0;
+}
+
+.lista a:hover::after {
+    width: 100%;
+}
+
+/* Botão "Conheça-me" */
+.botao_my button {
+    border: none;
+    font-weight: bold;
+    background-color: #ff0000;
+    padding: 12px 30px;
+    margin-top: -10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao_my button:hover {
+    background-color: #cc0000;
+}
+
+.botao_my button a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+#login-area {
+    position: absolute;
+    top: 35px;
+    right: 105px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+#login-area a {
+    border-radius: 10px;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: -35px;
+    color: #ffffff;
+    margin-top: -5px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+#login-area a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ffea00;
+    transition: width 0.4s;
+    margin: 2px auto 0;
+}
+
+#sair {
+    font-weight: bolder;
+    width: 5px;
+    cursor: pointer;
+}
+
+/* CONTAINER DO QUIZ */
+.quiz-container {
+    background-color: rgba(0,0,0,0.75);
+    width: 90%;
+    max-width: 600px;
+    margin: 120px auto 50px;
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    text-align: center;
+    color: #fff;
+}
+
+.intro h1,
+.app h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+#comecar-btn,
+#next-btn {
+    background-color: #ffcc00;
+    color: #141414;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#comecar-btn:hover,
+#next-btn:hover {
+    background-color: #e6b800;
+}
+
+.quiz h2#question {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Botões de respostas */
+#answer-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#answer-buttons button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #444;
+    border: 2px solid #666;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#answer-buttons button:hover {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    color: #141414;
+}
+
+/* Estilo para respostas corretas e erradas */
+.correct {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: white !important;
+}
+
+.wrong {
+    background-color: #F44336 !important;
+    border-color: #F44336 !important;
+    color: white !important;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .header {
+        margin-right: 0;
+        padding: 10px;
+    }
+
+    .logoSecundaria img {
+        left: auto;
+        right: 20px;
+        top: 20px;
+    }
+
+    #login-area {
+        /* mantendo o estilo original para desktop, mas no mobile pode ajustar */
+        position: absolute;
+        top: 35px;
+        right: 140px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .navbar ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .quiz-container {
+        width: 95%;
+        margin: 140px auto 50px;
+        padding: 20px 25px;
+    }
 }

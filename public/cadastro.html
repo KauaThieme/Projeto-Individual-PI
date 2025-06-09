@@ -18,40 +18,25 @@
       <ul class="lista">
         <li><a href="./index.html">Home</a></li>
         <li class="botao_my"><button><a href="./sobreMim.html">Conheça-me</a></button></li>
-        <li><a href="./quiz.html">Quiz</a></li>
+        <li><a href="https://www.youtube.com/@TTRacesOfficial" target="_blank">Vídeos</a></li>
       </ul>
     </div>
   </div>
 
   <div class="container">
-    <div class="card card-cadastro">
-      <div class="quadro">
-        <div class="formulario">
-          <div class="campo">
-            <span>Nome:</span>
-            <input class="input2" id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
+    <div class="quadro">
+      <div class="formulario">
 
-          <div class="campo">
-            <span>E-mail:</span>
-            <input class="input2" id="email_input" type="email" placeholder="meuemail@provedor.com" required
-              pattern=".+@.+\..+" />
-          </div>
+        <input class="input2" id="nome_input" type="text" placeholder="Seu nome" />
 
-          <div class="campo">
-            <span>Senha:</span>
-            <input class="input2" id="senha_input" type="password" placeholder="******" />
-          </div>
+        <input class="input2" id="email_input" type="email" placeholder="meuemail@provedor.com" />
 
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input class="input2" id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
+        <input class="input2" id="senha_input" type="password" placeholder="Senha:" />
 
-          <br>
+        <input class="input2" id="confirmacao_senha_input" type="password" placeholder="Confirmação da Senha:" />
 
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
+        <button class="botao" onclick="cadastrar()">Cadastrar</button>
+
       </div>
     </div>
   </div>
@@ -60,14 +45,34 @@
 
   <script>
     function senhaForte(senha) {
-      // Pelo menos 8 caracteres, 1 maiúscula, 1 minúscula, 1 número, 1 caractere especial
-      var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-      return regex.test(senha);
+      if (senha.length < 8) {
+        return false;
+      }
+
+      var temMaiuscula = false;
+      var temMinuscula = false;
+      var temNumero = false;
+      var temEspecial = false;
+
+      var especiais = "!@#$%^&*()-_=+[]{}|;:',.<>?/`~\"\\";
+
+      for (let i = 0; i < senha.length; i++) {
+        
+        var c = senha[i];
+
+        if (c >= 'A' && c <= 'Z') temMaiuscula = true;
+        else if (c >= 'a' && c <= 'z') temMinuscula = true;
+        else if (c >= '0' && c <= '9') temNumero = true;
+        else if (especiais.includes(c)) temEspecial = true;
+      }
+
+      return temMaiuscula && temMinuscula && temNumero && temEspecial;
     }
 
+
     function cadastrar() {
-      var nomeVar = nome_input.value.trim();
-      var emailVar = email_input.value.trim();
+      var nomeVar = nome_input.value;
+      var emailVar = email_input.value;
       var senhaVar = senha_input.value;
       var confirmacaoSenhaVar = confirmacao_senha_input.value;
       var dataHoraVar = new Date().toISOString();
@@ -85,6 +90,24 @@
         Swal.fire({
           icon: "error",
           title: "E-mail inválido",
+          text: "Coloque o @..."
+        });
+        return;
+      }
+
+      if (!emailVar.includes(".")) {
+        Swal.fire({
+          icon: "error",
+          title: "E-mail inválido",
+          text: "Coloque ponto (.)"
+        });
+        return;
+      }
+
+      if (!emailVar.includes("gmail")) {
+        Swal.fire({
+          icon: "error",
+          title: "E-mail inválido",
           text: "Informe um e-mail válido!"
         });
         return;
@@ -95,11 +118,11 @@
           icon: "error",
           title: "Senha fraca",
           html: `A senha deve ter:<br>
-                • Mínimo 8 caracteres<br>
-                • 1 letra maiúscula<br>
-                • 1 letra minúscula<br>
-                • 1 número<br>
-                • 1 caractere especial`
+            • Mínimo 8 caracteres<br>
+            • 1 letra maiúscula<br>
+            • 1 letra minúscula<br>
+            • 1 número<br>
+            • 1 caractere especial`
         });
         return;
       }
@@ -137,12 +160,26 @@
             setTimeout(() => {
               window.location.href = './login.html';
             }, 2000);
+          } else {
+            console.log("Houve um erro ao tentar realizar o login!");
 
+            resposta.text().then(texto => {
+              console.error(texto);
+
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Erro ao logar!",
+                text: "E-mail duplicado ou inválido!"
+              });
+
+              finalizarAguardar();
+            });
           }
         })
     }
   </script>
-  
+
 </body>
 
 </html>

@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Isle Of Man TT</title>
   <link rel="stylesheet" href="./style/styleQuiz.css">
+  <script src="./js/sessao.js"></script>
+  <title>Quiz Isle Of Man TT</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
   <div class="header">
 
     <div class="logo">
@@ -17,15 +18,18 @@
 
     <div class="navbar">
       <ul class="lista">
+        <li><a href="./estatisticas3.html" id="estatisticas">Estatísticas</a></li>
         <li><a href="./index.html">Home</a></li>
-        <li><a href="./estatisticas.html">Estatísticas</a></li>
         <li class="botao_my"><button><a href="./sobreMim.html">Conheça-me</a></button></li>
-        <li><a href="https://www.youtube.com/@TTRacesOfficial">Vídeos </a></li>
-        <li><a href="./quiz.html">Quiz</a></li>
+        <li><a href="https://www.youtube.com/@TTRacesOfficial" target="_blank">Vídeos</a></li>
+        <li><a href="./quiz.html" id="quiz">Quiz</a></li>
       </ul>
-      <div class="login">
-        <a href="./login.html"><button>Login</button></a>
-      </div>
+
+    </div>
+
+    <div id="login-area">
+      <a href="./login.html" id="login">Login</a>
+      <a id="usuario" onclick="sair()"></a>
     </div>
 
     <div class="logoSecundaria">
@@ -33,6 +37,25 @@
     </div>
 
   </div>
+
+  <div class="quiz-container">
+    <div class="intro">
+      <h1>Quiz do TT</h1>
+      <p>Entre nessa corrida de perguntas e descubra seu conhecimento!</p>
+      <button id="comecar-btn" onclick="iniciar()">Começar</button>
+    </div>
+
+    <div class="app" style="display: none;">
+      <h1>Quiz do TT</h1>
+      <div class="quiz">
+        <h2 id="question">Pergunta</h2>
+        <div id="answer-buttons"></div>
+        <button id="next-btn">Próxima</button>
+      </div>
+    </div>
+  </div>
 </body>
 
+
 </html>
+<script src="./js/quiz.js"></script>

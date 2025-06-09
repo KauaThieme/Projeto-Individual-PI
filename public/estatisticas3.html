@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../CHRT.JS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="./style/styleDash.css">
+</head>
+
+<body class="body-2" onload="validarSessao()">
+
+    <br><br>
+
+    <div class="kpi-container">
+        <div class="kpi-card-2">
+            <h3>Melhor Jogador</h3>
+            <p>Lucas - 9/10</p>
+        </div>
+        <div class="kpi-card-2">
+            <h3>Média de Acertos</h3>
+            <p>7.4</p>
+        </div>
+        <div class="kpi-card-2">
+            <h3>Maior Pontuação</h3>
+            <p>10/10</p>
+        </div>
+    </div>
+
+    <div class="dashboard-2">
+        <canvas id="myChart3"></canvas>
+    </div>
+
+    <div id="login-area">
+        <a href="./login.html" id="login">Login</a>
+        <a id="usuario" onclick="sair()"></a>
+    </div>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./estatisticas2.html">Óbitos</a></li>
+            <li><a href="./estatisticas3.html">Quiz</a></li>
+        </ul>
+    </div>
+
+</body>
+
+<script>
+    const labels = ['Pergunta 1', 'Pergunta 2', 'Pergunta 3', 'Pergunta 4', 'Pergunta 5', 'Pergunta 6', 'Pergunta 7', 'Pergunta 8', 'Pergunta 9', 'Pergunta 10'];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Taxa de Acertos por Pergunta em %',
+            borderColor: 'rgba(0, 123, 255, 1)',
+            backgroundColor: 'rgba(0, 123, 255, 0.3)',
+            fill: true,
+            tension: 0.2,
+            data: [90, 85, 75, 95, 60, 70, 88, 92, 80, 65]
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.5)'
+                    },
+                    ticks: {
+                        color: '#fff'
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.5)'
+                    },
+                    ticks: {
+                        color: '#fff'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#fff'
+                    }
+                }
+            }
+        }
+    };
+
+</script>
+
+<script>
+
+    const myChart = new Chart(
+        document.getElementById('myChart3'),
+        config
+    );
+
+</script>
+
+</html>
