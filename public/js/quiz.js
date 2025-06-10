@@ -1,8 +1,8 @@
 // Início do Quiz: esconde a tela de introdução e exibe o conteúdo principal
 function iniciar() {
-    document.querySelector('.intro').style.display = 'none';
-    document.querySelector('.app').style.display = 'block';
-    startQuiz();
+    document.querySelector('.intro').style.display = 'none'; // Esconde a tela inicial
+    document.querySelector('.app').style.display = 'block';  // Mostra a área do quiz
+    startQuiz(); // Inicia o quiz
 }
 
 // Banco de perguntas e respostas
@@ -99,94 +99,100 @@ const questoes = [
     },
 ];
 
-// Elementos do DOM
-const questaoElemento = document.getElementById("question");
-const botoesResposta = document.getElementById("answer-buttons");
-const botaoProximo = document.getElementById("next-btn");
+// Elementos do DOM que serão manipulados durante o quiz
+const questaoElemento = document.getElementById("question"); // Onde a pergunta será exibida
+const botoesResposta = document.getElementById("answer-buttons"); // Onde os botões de resposta serão colocados
+const botaoProximo = document.getElementById("next-btn"); // Botão para passar para a próxima pergunta
 
-// Controle do estado do quiz
-let questaoAtualIndex = 0;
-let acertos = 0;
-let questoesEmbaralhadas = [];
+// Variáveis de controle do quiz
+let questaoAtualIndex = 0; // Índice da pergunta atual
+let acertos = 0; // Total de acertos do usuário
+let questoesEmbaralhadas = []; // Lista de questões (pode ser embaralhada no futuro)
 
-// Embaralha as questões
-function embaralharQuestoes(array) {
-    const novoArray = [...array];
-    for (let i = novoArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [novoArray[i], novoArray[j]] = [novoArray[j], novoArray[i]];
-    }
-    return novoArray;
-}
-
-// Inicia o quiz
+// Função que inicia o quiz
 function startQuiz() {
-    questaoAtualIndex = 0;
-    acertos = 0;
-    botaoProximo.innerText = "Próxima";
-    questoesEmbaralhadas = embaralharQuestoes(questoes);
-    mostrarQuestao();
+    questaoAtualIndex = 0; // Reinicia o índice
+    acertos = 0; // Zera o número de acertos
+    botaoProximo.innerText = "Próxima"; // Define o texto inicial do botão
+    questoesEmbaralhadas = questoes; // Define as questões
+    mostrarQuestao(); // Exibe a primeira pergunta
 }
 
-// Limpa o estado atual
+// Limpa os botões e oculta o botão "Próxima"
 function resetState() {
-    botaoProximo.style.display = "none";
-    while (botoesResposta.firstChild) {
+    botaoProximo.style.display = "none"; // Esconde o botão
+    while (botoesResposta.firstChild) { // Remove todos os botões de resposta anteriores
         botoesResposta.removeChild(botoesResposta.firstChild);
     }
 }
 
-// Exibe a questão atual
+// Exibe a pergunta atual e cria os botões de resposta
 function mostrarQuestao() {
-    resetState();
-    const questao = questoesEmbaralhadas[questaoAtualIndex];
-    questaoElemento.innerText = `${questaoAtualIndex + 1}. ${questao.pergunta}`;
+    resetState(); // Limpa o estado anterior
+    const questao = questoesEmbaralhadas[questaoAtualIndex]; // Pega a questão atual
+    questaoElemento.innerText = `${questaoAtualIndex + 1}. ${questao.pergunta}`; // Mostra a pergunta
 
+    // Para cada resposta da questão, cria um botão com os dados
     questao.respostas.forEach(resposta => {
         const button = document.createElement("button");
-        button.innerText = resposta.text;
-        button.classList.add("btn");
-        button.dataset.correct = resposta.correct;
-        button.addEventListener("click", selectAnswer);
-        botoesResposta.appendChild(button);
+        button.innerText = resposta.text; // Texto da resposta
+        button.classList.add("btn"); // Classe para estilizar
+        button.dataset.correct = resposta.correct; // Armazena se a resposta é correta
+        button.addEventListener("click", selectAnswer); // Adiciona evento de clique
+        botoesResposta.appendChild(button); // Adiciona o botão à tela
     });
 }
 
-// Trata a resposta selecionada
+// Função chamada ao clicar em uma resposta
 function selectAnswer(e) {
-    const botaoSelecionado = e.target;
-    const correta = botaoSelecionado.dataset.correct === "true";
+    const botaoSelecionado = e.target; // Pega o botão clicado
+    const correta = botaoSelecionado.dataset.correct === "true"; // Verifica se está correta
 
     if (correta) {
-        botaoSelecionado.classList.add("correct");
-        acertos++;
+        botaoSelecionado.classList.add("correct"); // Marca como correta
+        acertos++; // Incrementa a pontuação
     } else {
-        botaoSelecionado.classList.add("incorrect");
+        botaoSelecionado.classList.add("incorrect"); // Marca como incorreta
     }
 
+    // Desativa todos os botões após a resposta ser escolhida
     Array.from(botoesResposta.children).forEach(button => {
         button.disabled = true;
     });
 
-    botaoProximo.style.display = "block";
+    botaoProximo.style.display = "block"; // Mostra o botão "Próxima"
+
+    // Define o que acontece ao clicar em "Próxima"
     botaoProximo.onclick = () => {
-        questaoAtualIndex++;
+        questaoAtualIndex++; // Avança para a próxima pergunta
         if (questaoAtualIndex < questoesEmbaralhadas.length) {
-            mostrarQuestao();
+            mostrarQuestao(); // Exibe a próxima
         } else {
-            mostrarResultado();
+            mostrarResultado(); // Exibe a pontuação final
         }
     };
 }
 
-// Exibe o resultado final
+// Exibe a pontuação final do usuário
 function mostrarResultado() {
-    resetState();
-    questaoElemento.innerHTML = `Você acertou ${acertos} de ${questoesEmbaralhadas.length} perguntas!`;
-    botaoProximo.innerText = "Jogar Novamente";
-    botaoProximo.style.display = "block";
-    botaoProximo.onclick = startQuiz;
+    resetState(); // Limpa a tela
+    questaoElemento.innerHTML = `Você acertou ${acertos} de ${questoesEmbaralhadas.length} perguntas!`; // Mostra a pontuação
+    botaoProximo.innerText = "Jogar Novamente"; // Muda o texto do botão
+    botaoProximo.style.display = "block"; // Mostra o botão
+    botaoProximo.onclick = startQuiz; // Reinicia o quiz ao clicar
+
+    // Envia os dados da partida para o servidor (backend)
+    fetch("/quizRoutes/adicionarPartida", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            id_usuarioServer: sessionStorage.getItem("ID_USUARIO"), // ID do usuário (armazenado na sessão)
+            notaServer: acertos // Envia a pontuação
+        }),
+    });
 }
 
-// Inicia automaticamente ao carregar
+// Inicia automaticamente o quiz ao carregar a página
 startQuiz();

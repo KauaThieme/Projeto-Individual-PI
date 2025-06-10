@@ -12,22 +12,22 @@
     <link rel="stylesheet" href="./style/styleDash.css">
 </head>
 
-<body class="body-2" onload="validarSessao()">
+<body class="body-2" onload="validarSessao(), estatisticasNotas()">
 
     <br><br>
 
     <div class="kpi-container">
         <div class="kpi-card-2">
-            <h3>Melhor Jogador</h3>
-            <p>Lucas - 9/10</p>
+            <h3>Jogador</h3>
+            <p id="nome_jogador"></p>
         </div>
         <div class="kpi-card-2">
             <h3>Média de Acertos</h3>
-            <p>7.4</p>
+            <p id="media_acertos"></p>
         </div>
         <div class="kpi-card-2">
             <h3>Maior Pontuação</h3>
-            <p>10/10</p>
+            <p id="maior_pontuacao"></p>
         </div>
     </div>
 
@@ -51,20 +51,50 @@
 </body>
 
 <script>
-    const labels = ['Pergunta 1', 'Pergunta 2', 'Pergunta 3', 'Pergunta 4', 'Pergunta 5', 'Pergunta 6', 'Pergunta 7', 'Pergunta 8', 'Pergunta 9', 'Pergunta 10'];
+    var idVar = sessionStorage.ID_USUARIO;
+    const labels = [];
+    const notas = [];
+
+    fetch(`/dashQuizRoutes/ultimasPartidas/${idVar}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }
+    ).then(function (resposta) {
+        console.log("Resposta:", resposta);
+        if (resposta.ok) {
+            return resposta.json();
+        } else {
+            throw new Error("ERRO");
+        }
+    }).then(function (dados) {
+        console.log(dados);
+
+        for (let index = 0; index < 10; index++) {
+            const nota = dados[index].nota;
+
+            if (dados[index]) {
+                labels.push(`Partida ${index + 1}`);
+                notas.push(nota)
+            } else {
+                labels.push(`Partida ${index + 1}`);
+                notas.push(0);
+            }
+        }
+    })
 
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Taxa de Acertos por Pergunta em %',
+            label: 'Taxa de Acertos por Partida',
             borderColor: 'rgba(0, 123, 255, 1)',
             backgroundColor: 'rgba(0, 123, 255, 0.3)',
             fill: true,
             tension: 0.2,
-            data: [90, 85, 75, 95, 60, 70, 88, 92, 80, 65]
+            data: notas
         }]
     };
-
     const config = {
         type: 'line',
         data: data,
@@ -100,6 +130,34 @@
 </script>
 
 <script>
+
+    function estatisticasNotas() {
+        var idVar = sessionStorage.ID_USUARIO;
+        var nome_usuario = sessionStorage.NOME_USUARIO;
+        var media = document.getElementById('media_acertos');
+        var nome = document.getElementById('nome_jogador');
+        var nota_maxima = document.getElementById('maior_pontuacao');
+
+        fetch(`/dashQuizRoutes/estatisticasNotas/${idVar}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+        ).then(function (resposta) {
+            console.log("Resposta:", resposta);
+            if (resposta.ok) {
+                return resposta.json();
+            } else {
+                throw new Error("ERRO");
+            }
+        }).then(function (dados) {
+            nome.innerHTML = nome_usuario;
+            media.innerHTML = dados[0].MediaGeral;
+            nota_maxima.innerHTML = dados[0].MaiorNota;
+        })
+
+    }
 
     const myChart = new Chart(
         document.getElementById('myChart3'),

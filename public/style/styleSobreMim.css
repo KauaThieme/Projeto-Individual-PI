@@ -76,7 +76,7 @@ body::before {
     text-decoration: none;
     font-weight: bold;
 }
-
+ 
 .lista a::after {
     content: '';
     display: block;
@@ -172,4 +172,12 @@ body::before {
     background: #ffea00;
     transition: width 0.4s;
     margin: 2px auto 0;
+}
+
+.link {
+    color: #ffffff;
+}
+
+.link:hover {
+    color: #840000;
 }

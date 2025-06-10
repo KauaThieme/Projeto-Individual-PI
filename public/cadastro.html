@@ -75,7 +75,6 @@
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
       var confirmacaoSenhaVar = confirmacao_senha_input.value;
-      var dataHoraVar = new Date().toISOString();
 
       if (!nomeVar || !emailVar || !senhaVar || !confirmacaoSenhaVar) {
         Swal.fire({
@@ -145,7 +144,6 @@
           nomeServer: nomeVar,
           emailServer: emailVar,
           senhaServer: senhaVar,
-          dataCadastroServer: dataHoraVar
         }),
       })
         .then(function (resposta) {
@@ -161,7 +159,7 @@
               window.location.href = './login.html';
             }, 2000);
           } else {
-            console.log("Houve um erro ao tentar realizar o login!");
+            console.log("Houve um erro ao tentar realizar o cadastro!");
 
             resposta.text().then(texto => {
               console.error(texto);
@@ -172,8 +170,6 @@
                 title: "Erro ao logar!",
                 text: "E-mail duplicado ou inválido!"
               });
-
-              finalizarAguardar();
             });
           }
         })

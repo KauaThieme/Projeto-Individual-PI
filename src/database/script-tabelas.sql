@@ -31,22 +31,22 @@ INSERT INTO obitos_por_decada (decada, total_obitos) VALUES
 (2020, 25);
 
 CREATE TABLE DashboardDados (
-    id INT,
+    id INT AUTO_INCREMENT,
     id_usuario INT,
     nota INT,
-    acerto_pergunta_1 DECIMAL(5,2),
-    acerto_pergunta_2 DECIMAL(5,2),
-    acerto_pergunta_3 DECIMAL(5,2),
-    acerto_pergunta_4 DECIMAL(5,2),
-    acerto_pergunta_5 DECIMAL(5,2),
-    acerto_pergunta_6 DECIMAL(5,2),
-    acerto_pergunta_7 DECIMAL(5,2),
-    acerto_pergunta_8 DECIMAL(5,2),
-    acerto_pergunta_9 DECIMAL(5,2),
-    acerto_pergunta_10 DECIMAL(5,2),
     FOREIGN KEY (id_usuario) REFERENCES usuario(id),
     PRIMARY KEY (id, id_usuario)
 );
+
+SELECT ROUND(AVG(nota)) AS "Médio Geral", MAX(nota) AS "Maior Nota"
+FROM DashboardDados
+JOIN usuario
+ON DashboardDados.id_usuario = usuario.id
+WHERE id_usuario = 1;
+
+SELECT nota FROM DashboardDados 
+JOIN usuario ON DashboardDados.id_usuario = usuario.id 
+WHERE usuario.id = 1 LIMIT 10;
 
 SELECT 
     id AS 'ID',
@@ -66,3 +66,5 @@ JOIN usuario u ON d.id_usuario = u.id
 WHERE d.nota = (SELECT MAX(nota) FROM DashboardDados);
 
 SELECT MAX(nota) AS "Maior Nota" FROM DashboardDados;
+
+SELECT * FROM DashboardDados;

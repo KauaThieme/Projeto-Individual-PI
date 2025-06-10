@@ -39,7 +39,7 @@ body::before {
     background-color: transparent;
     padding: 20px;
     text-align: center;
-    margin-left: -110px;
+    margin-left: -100px;
 }
 
 .header a {
@@ -156,6 +156,7 @@ body::before {
     padding: 12px 30px;
     margin-top: -10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /* CSS dos alerts */
